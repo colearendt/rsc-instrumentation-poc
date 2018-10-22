@@ -120,9 +120,7 @@ get_shiny_usage <- function(content_guid = NA) {
                                               ended = .x$ended)))
   }
   
-  
-  #temporary till the GUID migration lands
-  add_user_guid_to_usage(results)
+  return(result)
 }
 
 # fake implementation
