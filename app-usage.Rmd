@@ -88,7 +88,7 @@ Row {data-height=15}
 uiOutput("app_select")
 output$app_select <- renderUI({
   apps <- data() %>% 
-    pull(app_id) %>% 
+    pull(content_guid) %>% 
     unique()
   selectizeInput('app', 'App GUID (see Info Settings Panel)', apps)  
 })
