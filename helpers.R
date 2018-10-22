@@ -75,7 +75,7 @@ get_all_users <- function(){
 }
 
 # get usage data for an app, optionally filtering by content GUID
-get_shiny_usage_new <- function(content_guid = NA) {
+get_shiny_usage <- function(content_guid = NA) {
   connectServer <- Sys.getenv("RSTUDIO_CONNECT_SERVER")
   apiKey <- Sys.getenv("RSTUDIO_CONNECT_API_KEY")
   
@@ -126,7 +126,7 @@ get_shiny_usage_new <- function(content_guid = NA) {
 }
 
 # fake implementation
-get_shiny_usage <- function(content_guid = NA) {
+get_shiny_usage_old <- function(content_guid = NA) {
   con <- odbc::dbConnect(RSQLite::SQLite(), "connect-instrumentation.db")
   on.exit(dbDisconnect(con))
   usage_data <- dbReadTable(con, "shiny_app_usage")
